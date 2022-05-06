@@ -9,27 +9,23 @@ import org.junit.Before;
 import org.junit.Test;
 import ru.yandex.praktikum.ORDER.Order;
 import ru.yandex.praktikum.ORDER.OrderClient;
-import static io.qameta.allure.Allure.step;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertTrue;
+
 
 public class OrderTest {
     private OrderClient orderClient;
-
     @Before
     public void setUp() {
         orderClient = new OrderClient();
     }
-
     @Test
+    @Step ("Создание заказа")
     @Description("Создание заказа")
     @DisplayName("Создание заказа")
     @TmsLink("TMS-3.1")
     @Issue("BUG-3.1")
     public void orderCanBeCreatedWithValidData() {
-
-        //Order order = Order.getRandomOrder();
         Order order= new Order( "Naruto",
                  "Uchiha",
                  "Konoha, 142 apt.",

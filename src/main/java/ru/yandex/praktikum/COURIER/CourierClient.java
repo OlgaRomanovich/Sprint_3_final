@@ -1,12 +1,9 @@
 package ru.yandex.praktikum.COURIER;
 import io.qameta.allure.Step;
-import io.restassured.response.Validatable;
 import io.restassured.response.ValidatableResponse;
-
 import static io.restassured.RestAssured.given;
 public class CourierClient extends ScooterRestClient {
     private static final String COURIER_PATH= "api/v1/courier/";
-
     @Step("Register courier")
     public ValidatableResponse create(Courier courier){
         return given()
@@ -15,10 +12,6 @@ public class CourierClient extends ScooterRestClient {
                 .when()
                 .post(COURIER_PATH)
                 .then();
-               // .assertThat()
-                //.statusCode(201)
-               // .extract()
-                //.path("ok");
     }
 
     @Step ("Login courier")
@@ -29,10 +22,6 @@ public class CourierClient extends ScooterRestClient {
                 .when()
                 .post(COURIER_PATH + "login")
                 .then();
-               // .assertThat()
-               // .statusCode(200)
-               // .extract()
-              //  .path("id");
     }
 
     @Step ("Delete courier {id}")
@@ -42,9 +31,5 @@ public class CourierClient extends ScooterRestClient {
                 .when()
                 .delete(COURIER_PATH +id)
                 .then();
-                //.assertThat()
-               // .statusCode(200)
-               // .extract()
-               // .path("ok");
     }
 }

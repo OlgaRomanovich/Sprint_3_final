@@ -3,14 +3,13 @@ package ru.yandex.praktikum.ORDER;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import ru.yandex.praktikum.COURIER.ScooterRestClient;
-
 import static io.restassured.RestAssured.given;
 
     public class OrderClient extends ScooterRestClient {
 
         private static final String ORDERS_PATH = "api/v1/orders/";
 
-        @Step("Создаем заказ {order}")
+        @Step("Create order {order}")
         public ValidatableResponse createOrder(Order order) {
             return given()
                     .spec(getBaseSpec())
@@ -19,10 +18,6 @@ import static io.restassured.RestAssured.given;
                     .when()
                     .post(ORDERS_PATH)
                     .then();
-            //.assertThat()
-            //.statusCode(201)
-            //.extract()
-            //.path("track");
         }
 
         @Step("Получить заказа по номеру")
@@ -47,11 +42,10 @@ import static io.restassured.RestAssured.given;
                     .then();
         }
 
-        @Step("Получить список заказов")
-        public ValidatableResponse getOrderList(int courierId) {
+        @Step("Get order list")
+        public ValidatableResponse getOrderList() {
             return given()
                     .spec(getBaseSpec())
-                    .param("courierId", courierId)
                     .log().all()
                     .when()
                     .get("api/v1/orders")

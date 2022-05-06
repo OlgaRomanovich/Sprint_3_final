@@ -1,5 +1,6 @@
 package ru.yandex.praktikum.OrderTests;
 
+import io.qameta.allure.Step;
 import org.junit.Test;
 import io.restassured.response.ValidatableResponse;
 import org.junit.runner.RunWith;
@@ -48,6 +49,7 @@ public class OrderParameterizedTest {
     }
 
     @Test
+    @Step ("")
     public void orderCanBeCreated() {
         orderClient = new OrderClient();
         Order orderCanBeCreated = new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
