@@ -8,7 +8,6 @@ import org.junit.Test;
 import ru.yandex.praktikum.COURIER.Courier;
 import ru.yandex.praktikum.COURIER.CourierClient;
 import ru.yandex.praktikum.COURIER.CourierCredentials;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 

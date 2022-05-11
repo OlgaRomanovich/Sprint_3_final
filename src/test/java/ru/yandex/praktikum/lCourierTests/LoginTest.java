@@ -40,7 +40,7 @@ public class LoginTest {
     }
 
     @Test
-    @DisplayName("Логин курьера с некорректными данными")
+    @DisplayName("Login with empty password")
     public void courierCanLoginWithEmptyPassword() {
         ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(courier.login, ""));
         int statusCode = loginResponse.extract().statusCode();
@@ -49,7 +49,7 @@ public class LoginTest {
         assertThat("Response is correct", responseText, equalTo("Недостаточно данных для входа"));
     }
     @Test
-    @DisplayName("Логин курьера с некорректными данными")
+    @DisplayName("Login with Invalid Credentials")
     public void courierCanLoginWithInvalidCredentials() {
         ValidatableResponse loginResponse = courierClient.login(new CourierCredentials(courier.login, "12345"));
         int statusCode = loginResponse.extract().statusCode();

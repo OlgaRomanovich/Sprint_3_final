@@ -20,9 +20,9 @@ public class OrderTest {
         orderClient = new OrderClient();
     }
     @Test
-    @Step ("Создание заказа")
-    @Description("Создание заказа")
-    @DisplayName("Создание заказа")
+    @Step ("Create order")
+    @Description("Create order")
+    @DisplayName("Create order")
     @TmsLink("TMS-3.1")
     @Issue("BUG-3.1")
     public void orderCanBeCreatedWithValidData() {

@@ -1,5 +1,6 @@
 package ru.yandex.praktikum.OrderTests;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.junit.Test;
 import io.restassured.response.ValidatableResponse;
@@ -7,7 +8,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import ru.yandex.praktikum.ORDER.Order;
 import ru.yandex.praktikum.ORDER.OrderClient;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -40,7 +40,6 @@ public class OrderParameterizedTest {
     @Parameterized.Parameters(name = "Тестовые данные: {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}")
 
     public static Object[][] getOrderData() {
-        //Order order = Order.getRandomOrder();
         return new Object[][]{
                 {"testFirstName1", "testLastname1", "testAddress1", "metroStationTest1", "phoneTest1", 6, "10-10-2022", "commentTest1", new String[]{"BLACK"}},
                 {"testFirstName2", "testLastname2", "testAddress2", "metroStationTest2", "phoneTest2", 6, "11-10-2022", "commentTest2", new String[]{}},
@@ -49,7 +48,8 @@ public class OrderParameterizedTest {
     }
 
     @Test
-    @Step ("")
+    @Step("Create Order")
+    @Description("Check creating order with different colours")
     public void orderCanBeCreated() {
         orderClient = new OrderClient();
         Order orderCanBeCreated = new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
